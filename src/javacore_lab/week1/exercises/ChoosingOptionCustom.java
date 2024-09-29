@@ -4,7 +4,7 @@ import javax.swing.*;
 
 public class ChoosingOptionCustom {
     public static void main(String[] args) {
-        Object[] options = {"Yes", "No"};
+        Object[] options = {"I do", "I don’t"};
         int option = JOptionPane.showOptionDialog(null,
                 "Do you want to change to the first class ticket?",
                 null,
