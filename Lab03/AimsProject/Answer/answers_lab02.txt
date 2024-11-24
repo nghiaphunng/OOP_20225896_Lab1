@@ -1,0 +1,3 @@
+Câu hỏi 8:
+    Câu trả lời là có vì Java cho phép 1 class có thể có nhiều phương thức khởi tạo (constructor), đây là nạp chồng phương thức khởi tạo
+    Chúng ta có thể tạo nhiều phương thức khởi tạo khác nhau cho 1 class với các tham số khác nhau (kiểu dữ liệu và số lượng tham số khác nhau)
