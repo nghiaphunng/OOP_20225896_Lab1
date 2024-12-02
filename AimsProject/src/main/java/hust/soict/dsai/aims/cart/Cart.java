@@ -54,14 +54,13 @@ public class Cart {
    }
 
    //search by id
-   public void searchById(int id){
+   public Media searchById(int id){
       for(Media media : itemsOrdered){
          if(media.getId() == id){
-            System.out.println(media.toString());
-            return;
+            return media;
          }
       }
-      System.out.println("Not found DVD with Id = " + id);
+      return null;
    }
 
    //search by title
@@ -73,24 +72,24 @@ public class Cart {
       }
       return null;
    }
-
-   //filter by title
-   public void filterByTitle(String keyTitle){
-      for(Media media : itemsOrdered){
-         if(media.getTitle().contains(keyTitle)){
-            System.out.println(media);
-         }
-      }
-   }
-
-   //filter by cost
-   public void filterById(int id){
-      for(Media media : itemsOrdered){
-         if(media.getId() == id){
-            System.out.println(media);
-         }
-      }
-   }
+//
+//   //filter by title
+//   public void filterByTitle(String keyTitle){
+//      for(Media media : itemsOrdered){
+//         if(media.getTitle().contains(keyTitle)){
+//            System.out.println(media);
+//         }
+//      }
+//   }
+//
+//   //filter by cost
+//   public void filterById(int id){
+//      for(Media media : itemsOrdered){
+//         if(media.getId() == id){
+//            System.out.println(media);
+//         }
+//      }
+//   }
 
    //sort by title
    public void sortByTitle(){

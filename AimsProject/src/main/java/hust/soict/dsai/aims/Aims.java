@@ -265,13 +265,17 @@ public class Aims {
             case 1:
                 System.out.println("Enter title: ");
                 String title = sc.nextLine();
-                cart.filterByTitle(title);
+                Media mediaByTitle = cart.searchByTitle(title);
+                if(mediaByTitle != null) System.out.println(mediaByTitle);
+                else System.out.println("Not found");
                 break;
 
             case 2:
                 System.out.println("Enter id: ");
                 int id = sc.nextInt();
-                cart.filterById(id);
+                Media mediaById = cart.searchById(id);
+                if(mediaById != null) System.out.println(mediaById);
+                else System.out.println("Not found");
                 break;
         }
     }
