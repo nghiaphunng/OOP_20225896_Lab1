@@ -1,0 +1,30 @@
+Câu hỏi 9:
+    -Lớp Store là một aggregate vì nó quản lý danh sách các đối tượng Media thông qua itemsInStore
+    -Lớp Cart là một aggregate vì nó quản lý các đối tượng Media trong giỏ hàng thông qua itemsOrdered
+    -Lớp CompactDisc là một aggregate vì nó quản lý các đối tượng Track trong giỏ hàng thông qua tracks
+
+Câu hỏi 10:
+    -Nếu đối tượng không phải là một thể hiện của Media, phương thức sẽ trả về false để biểu thị rằng hai đối tượng không bằng nhau.
+
+Câu hỏi 12:
+-Class Media nên impplement Comparable interface vì đây là lớp cơ sở nhất cho các loại media khác
+-Để phản ánh đúng thứ tự, cần override lại phương thức compareTo() dựa trên quy tắc sắp xếp theo yêu cầu
+-Comparable chỉ hỗ trợ một quy tắc sắp xếp duy nhất vì compareTo() được định nghĩa trong chính lớp.
+ Nếu cần nhiều hơn một quy tắc sắp xếp, bạn nên sử dụng Comparator, cho phép định nghĩa các quy tắc sắp xếp khác nhau bên ngoài lớp.
+-Có thể override lại compareTo() trong lớp DVD:
+    @Override
+        public int compareTo(Media other) {
+            DVD otherDVD = (DVD) other;
+            int titleComparison = this.title.compareTo(otherDVD.title);
+            if (titleComparison != 0) {
+                return titleComparison;
+            }
+
+            int lengthComparison = Integer.compare(otherDVD.length, this.length);
+            if (lengthComparison != 0) {
+                return lengthComparison;
+            }
+
+            return Double.compare(this.cost, otherDVD.cost);
+        }
+
