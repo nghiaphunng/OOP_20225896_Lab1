@@ -1,3 +1,1 @@
-Question: The Aims class must be updated to handle any exceptions generated when the play() methods are called. What happens when you don’t update for them to catch?
-
-Answer: If the exception is not caught by any method in the call stack, it will cause the program to terminate abruptly. This can lead to data loss, incomplete operations, or an unresponsive application. Users might encounter unexpected crashes and cannot receive error messages about what went wrong. Programmers can find it hard to identify the source of the problem and debug the program.
+Nếu ngoại lệ không được bất kỳ phương thức nào trong ngăn xếp gọi bắt, chương trình sẽ bị dừng đột ngột. Điều này có thể dẫn đến mất dữ liệu, các hoạt động chưa hoàn thành, hoặc ứng dụng không phản hồi. Người dùng có thể gặp phải các lỗi bất ngờ và không nhận được thông báo lỗi về vấn đề xảy ra. Lập trình viên sẽ khó xác định nguồn gốc của vấn đề và gỡ lỗi chương trình.
