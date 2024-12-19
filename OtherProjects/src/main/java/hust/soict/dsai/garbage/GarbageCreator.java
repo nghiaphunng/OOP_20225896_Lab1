@@ -5,24 +5,18 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 
 public class GarbageCreator {
-    public static void main(String[] args) {
-        String fileName = "Test/output-onlinefiletools.txt";
-        byte[] inputBytes = null;
+    public static void main(String[] args) throws IOException {
+        String filename = "E:\\SchoolworkBK\\20232\\OOP\\OOPLab\\OtherProjects\\src\\main\\java\\hust\\soict\\dsai\\garbage\\text.txt";
+        byte[] inputBytes = { 0 };
         long startTime, endTime;
 
-        try {
-            inputBytes = Files.readAllBytes(Paths.get(fileName));
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-
+        inputBytes = Files.readAllBytes(Paths.get(filename));
         startTime = System.currentTimeMillis();
-        String outputStr = "";
-        for(byte b : inputBytes){
-            outputStr += (char) b;
+        StringBuilder outputStringBuilder = new StringBuilder();
+        for (byte b: inputBytes) {
+            outputStringBuilder.append((char) b);
         }
         endTime = System.currentTimeMillis();
-
-        System.out.println("time: " + (endTime - startTime));
+        System.out.println(endTime - startTime);
     }
 }

@@ -6,23 +6,12 @@ import hust.soict.dsai.aims.media.DigitalVideoDisc;
 public class CartTest {
     public static void main(String[] args) {
         Cart cart = new Cart();
-
-        DigitalVideoDisc dvd1 = new DigitalVideoDisc("The Lion King", "Animation", "Roger Allers", 87, 19.95f);
-        cart.addMedia(dvd1);
-
-        DigitalVideoDisc dvd2 = new DigitalVideoDisc("Star Wars", "Science Fiction", "George Lucas", 87, 24.95f);
-        cart.addMedia(dvd2);
-
-        DigitalVideoDisc dvd3 = new DigitalVideoDisc("Aladin", "Animation", 18.95f);
-        cart.addMedia(dvd3);
-
+        DigitalVideoDisc d1 = new DigitalVideoDisc("Whisper of the Heart", "Animation", "Yoshifumi Kondo", 111, 8.3f);
+        DigitalVideoDisc d2 = new DigitalVideoDisc("Contratiempo", "Crime", "Oriol Paulo", 106, 30.0f);
+        DigitalVideoDisc[] dvdList = {d1, d2};
+//        cart.addDigitalVideoDisc(dvdList);
         cart.print();
-
-        //search DVD
-        System.out.println("Search by id");
-        cart.searchById(4);
-
-        System.out.println("Search by title");
-        cart.searchByTitle("The Lion King");
+        cart.searchById(1);
+        cart.searchByTitle("The scorpio has no heart");
     }
 }
