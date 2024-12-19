@@ -3,13 +3,13 @@ package hust.soict.dsai.aims.media;
 import java.util.Comparator;
 
 public class MediaComparatorByCostTitle implements Comparator<Media> {
-
     @Override
-    public int compare(Media media1, Media media2) {
-        int costComparison = Float.compare(media2.getCost(), media1.getCost()); //giá giảm
-        if(costComparison == 0){
-            return media1.getTitle().compareTo(media2.getTitle()); //sx theo tên nếu giá ==
+    public int compare(Media m1, Media m2) {
+        int costComparison = Float.compare(m1.getCost(), m2.getCost());
+        if (costComparison != 0) {
+            return costComparison;
+        } else {
+            return m1.getTitle().compareTo(m2.getTitle());
         }
-        return costComparison;
     }
 }

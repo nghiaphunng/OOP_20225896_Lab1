@@ -4,34 +4,39 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Book extends Media{
-    private List<String> authors = new ArrayList<String>();
+    private List<String> authors = new ArrayList<>();
 
-    public Book(){
-        super();
-    }
-
-    public Book(String title, String category, float cost){
+    public Book(String title, String category, float cost, List<String> authors) {
         super(title, category, cost);
+        this.authors = authors;
     }
 
-    public List<String> getAuthors() {
-        return authors;
+    public void addAuthor(String authorName) {
+        if (!authors.contains(authorName)) {
+            authors.add(authorName);
+            System.out.println("Added " + authorName + " to the author list");
+        } else {
+            System.out.println(authorName + " is already in the author list");
+        }
     }
 
-    //add author
-    public void addAuthor(String authorName){
-        if(!authors.contains(authorName)) authors.add(authorName);
-        else System.out.println("Author already exists");
-    }
-
-    //remove author
     public void removeAuthor(String authorName){
-        if(authors.contains(authorName)) authors.remove(authorName);
-        else System.out.println("Author not found");
+        if (authors.contains(authorName)){
+            authors.remove(authorName);
+            System.out.println("Removed " + authorName + " from the author list");
+        } else {
+            System.out.println(authorName + "is not in the author list");
+        }
     }
 
     @Override
     public String toString() {
-        return super.toString() + " Authors: " + String.join(", ", authors);
+        return "Book{" +
+                "Authors=" + authors + '\'' +
+                ", ID=" + getId() +
+                ", Title='" + getTitle() + '\'' +
+                ", Category='" + getCategory() + '\'' +
+                ", Cost=" + getCost() +
+                "}\n";
     }
 }

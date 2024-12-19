@@ -4,59 +4,54 @@ import hust.soict.dsai.aims.media.DigitalVideoDisc;
 import hust.soict.dsai.aims.media.Media;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class Store {
-    private static final int MAX_ITEMS_IN_STORE = 25;
-    private List<Media> itemsInStore = new ArrayList<>();
-    private static int idCnt = 1;
+    public static int MAX_QUANTITY = 50000;
+    private ArrayList<Media> itemsInStore = new ArrayList<Media>();
 
-    //add media
+    public ArrayList<Media> getItemsInStore() {
+        return itemsInStore;
+    }
+
     public void addMedia(Media media){
-        if(itemsInStore.size() >= MAX_ITEMS_IN_STORE){
-            System.out.println("The store is full.");
+        if (itemsInStore.size() == MAX_QUANTITY){
+            System.out.println("Maximum quantity exceeded");
+            return;
         }
-        else {
-            media.setId(idCnt++);
-            itemsInStore.add(media);
-            System.out.println("add media successfully");
-        }
+        itemsInStore.add(media);
+        System.out.println("Added the media to the store");
     }
-
-    //remove media
     public void removeMedia(Media media){
-        if(itemsInStore.contains(media)){
+        if (itemsInStore.contains(media)){
             itemsInStore.remove(media);
-            System.out.println("Successfully remove the media");
+            System.out.println("Removed the media from the store");
         }
-        else {
-            System.out.println("Media not found in the store");
+        else{
+            System.out.println("The media doesn't exist in the store");
         }
     }
-
-    public void display(){
+    public void print(){
         System.out.println("***********************STORE***********************");
-        if(itemsInStore.isEmpty()){
-            System.out.println("The store is empty.");
+        System.out.println("In-store items:");
+        for (Media item: itemsInStore){
+            System.out.println(item.toString());
         }
-        else {
-            for(int i = 0;i < itemsInStore.size();i++){
-                System.out.println("Id: " + itemsInStore.get(i).getId() +  " title: " + itemsInStore.get(i).getTitle() + " cost: " + String.format("%.2f", itemsInStore.get(i).getCost()));
-            }
-        }
-        System.out.println("**************************************************");
+        System.out.println("***************************************************");
     }
 
     public Media searchByTitle(String title){
-        for(Media media : itemsInStore){
-            if(media.isMatch(title)) return media;
+        for (Media item: itemsInStore){
+            if (item.isMatch(title)){
+                return item;
+            }
         }
         return null;
     }
-
-    public Media searchById(int id){
-        for(Media media : itemsInStore){
-            if(media.getId() == id) return media;
+    public Media searchByID(int id){
+        for (Media item: itemsInStore){
+            if (item.getId() == id){
+                return item;
+            }
         }
         return null;
     }
